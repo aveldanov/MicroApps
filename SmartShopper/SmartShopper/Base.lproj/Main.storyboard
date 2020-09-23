@@ -61,6 +61,10 @@
                             <constraint firstItem="kMj-ZL-GVI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uLT-Wb-vri"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="incomeTextField" destination="HXE-WE-KxQ" id="LIs-pI-3XC"/>
+                        <outlet property="priceTextField" destination="OIr-1K-GRr" id="5uZ-4f-HuH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
