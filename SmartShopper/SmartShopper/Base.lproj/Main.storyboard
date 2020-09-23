@@ -1,24 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SmartShopper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windowShopperBG" translatesAutoresizingMaskIntoConstraints="NO" id="5IQ-AC-sB8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windowShopperIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kMj-ZL-GVI">
+                                <rect key="frame" x="177" y="124" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="WVi-lU-pnT"/>
+                                    <constraint firstAttribute="width" constant="60" id="pq7-ms-L5O"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your hourly income" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXE-WE-KxQ" customClass="CurrencyTextField" customModule="SmartShopper" customModuleProvider="target">
+                                <rect key="frame" x="50" y="234" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dck-bD-pE1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIr-1K-GRr" customClass="CurrencyTextField" customModule="SmartShopper" customModuleProvider="target">
+                                <rect key="frame" x="50" y="334" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lEn-lC-dc9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OIr-1K-GRr" firstAttribute="leading" secondItem="HXE-WE-KxQ" secondAttribute="leading" id="06V-Lj-Xn2"/>
+                            <constraint firstItem="HXE-WE-KxQ" firstAttribute="top" secondItem="kMj-ZL-GVI" secondAttribute="bottom" constant="50" id="0nw-d7-UmC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5IQ-AC-sB8" secondAttribute="trailing" id="2yT-L8-78q"/>
+                            <constraint firstItem="OIr-1K-GRr" firstAttribute="height" secondItem="HXE-WE-KxQ" secondAttribute="height" id="97m-AU-e7B"/>
+                            <constraint firstItem="OIr-1K-GRr" firstAttribute="top" secondItem="HXE-WE-KxQ" secondAttribute="bottom" constant="50" id="COS-mA-I9t"/>
+                            <constraint firstItem="5IQ-AC-sB8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dg8-2I-N40"/>
+                            <constraint firstItem="5IQ-AC-sB8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ElF-UP-uKd"/>
+                            <constraint firstItem="kMj-ZL-GVI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="TLg-7f-Q8s"/>
+                            <constraint firstItem="HXE-WE-KxQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="bXG-ZN-ANT"/>
+                            <constraint firstAttribute="bottom" secondItem="5IQ-AC-sB8" secondAttribute="bottom" id="dZU-et-9bf"/>
+                            <constraint firstItem="OIr-1K-GRr" firstAttribute="trailing" secondItem="HXE-WE-KxQ" secondAttribute="trailing" id="p2g-Wt-mxa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HXE-WE-KxQ" secondAttribute="trailing" constant="50" id="sJr-rC-qT6"/>
+                            <constraint firstItem="kMj-ZL-GVI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uLT-Wb-vri"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-728.98550724637687" y="63.616071428571423"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="HXE-WE-KxQ">
+            <size key="intrinsicContentSize" width="124.5" height="18.5"/>
+        </designable>
+        <designable name="OIr-1K-GRr">
+            <size key="intrinsicContentSize" width="65" height="18.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="windowShopperBG" width="414" height="736"/>
+        <image name="windowShopperIcon" width="115" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
