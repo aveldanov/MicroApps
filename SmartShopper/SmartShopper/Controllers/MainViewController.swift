@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func calculate(){
-        
+        print("We got there")
     }
 
 
