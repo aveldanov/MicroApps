@@ -179,7 +179,6 @@
 				TargetAttributes = {
 					2150951525298F4D0009E87E = {
 						CreatedOnToolsVersion = 12.0.1;
-						TestTargetID = 218688E5251B250C00DC1BA7;
 					};
 					218688E5251B250C00DC1BA7 = {
 						CreatedOnToolsVersion = 12.0;
@@ -280,7 +279,6 @@
 		2150951D25298F4D0009E87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QLJ84Q3ZSY;
 				INFOPLIST_FILE = SmartShopperTests/Info.plist;
@@ -293,14 +291,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartShopper.app/SmartShopper";
 			};
 			name = Debug;
 		};
 		2150951E25298F4D0009E87E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QLJ84Q3ZSY;
 				INFOPLIST_FILE = SmartShopperTests/Info.plist;
@@ -313,7 +309,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartShopper.app/SmartShopper";
 			};
 			name = Release;
 		};

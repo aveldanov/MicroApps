@@ -10,7 +10,8 @@ import Foundation
 class Income{
     
     class func getHours(forIncome income: Double, andPrice price: Double)->Int{
-        return Int(ceil(price / income))
+//        return Int(ceil(price / income))
+        return Int(round(price / income))
     }
     
 }
