@@ -76,7 +76,6 @@
 				21E9429F25317C890049FD53 /* View */,
 				21E94287252ED7960049FD53 /* AppDelegate.swift */,
 				21E94289252ED7960049FD53 /* SceneDelegate.swift */,
-				21E9428D252ED7960049FD53 /* Main.storyboard */,
 				21E94290252ED7990049FD53 /* Assets.xcassets */,
 				21E94292252ED7990049FD53 /* LaunchScreen.storyboard */,
 				21E94295252ED7990049FD53 /* Info.plist */,
@@ -88,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				21E9428B252ED7960049FD53 /* CategoriesViewController.swift */,
+				21E942A025317CE70049FD53 /* CategoryTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,7 +103,7 @@
 		21E9429F25317C890049FD53 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21E942A025317CE70049FD53 /* CategoryTableViewCell.swift */,
+				21E9428D252ED7960049FD53 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
