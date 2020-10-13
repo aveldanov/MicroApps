@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  Clima
 //
-//  Created by Angela Yu on 01/09/2019.
-//  Copyright © 2019 App Brewery. All rights reserved.
+
 //
 
 import UIKit
@@ -16,6 +15,8 @@ class WeatherViewController: UIViewController, UISearchTextFieldDelegate {
     
     
     @IBOutlet weak var searchTextField: UITextField!
+    
+    let weatherManager = WeatherManager()
     
     
     
@@ -48,7 +49,9 @@ class WeatherViewController: UIViewController, UISearchTextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) { //method gets called by class through delegate which was set as WeatherViewController
         // use textField
         
-        
+        if let city = searchTextField.text{
+            weatherManager.fetchWeather(cityName: city)
+        }
         
         searchTextField.text = ""
     }
