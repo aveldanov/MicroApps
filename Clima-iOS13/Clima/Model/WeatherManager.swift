@@ -68,7 +68,6 @@ struct WeatherManager {
         do{
             let decodededData = try decoder.decode(WeatherData.self, from: weatherData)
             print("DATA: ",decodededData.weather[0].description)
-            
             print(decodededData.main.temp)
         }catch{
             print("ERROR",error)
