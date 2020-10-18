@@ -7,12 +7,17 @@ class TodoListViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var itemArray = [Item]()
     var item: Item?
-    let defaults = UserDefaults.standard
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+//    let defaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+ 
+        
+        print(dataFilePath)
+        
 //        let newItem1 = Item()
 //        newItem1.title = "P"
 //        itemArray.append(newItem1)
@@ -26,10 +31,10 @@ class TodoListViewController: UITableViewController {
 //        itemArray.append(newItem3)
 //
 
-        
-        if let items = defaults.array(forKey: "TodoListArray") as? [Item]{
-            itemArray = items
-        }
+        //defaults
+//        if let items = defaults.array(forKey: "TodoListArray") as? [Item]{
+//            itemArray = items
+//        }
 
     
     }
@@ -90,7 +95,22 @@ class TodoListViewController: UITableViewController {
             itemArray.append(newItem)
             
             
-            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+//            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+            
+            //encoder to create new own plist
+            
+            
+            let encoder = PropertyListEncoder()
+            do{
+                let data = try encoder.encode(self.itemArray)
+                print(data)
+                try data.write(to: self.dataFilePath!)
+            }catch{
+                print("Error encoding", error)
+            }
+            
+            
+            
             self.tableView.reloadData()
         }
         
