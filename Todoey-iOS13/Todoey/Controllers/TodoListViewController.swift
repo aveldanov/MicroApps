@@ -35,7 +35,9 @@ class TodoListViewController: UITableViewController {
 //        if let items = defaults.array(forKey: "TodoListArray") as? [Item]{
 //            itemArray = items
 //        }
-
+            //custom plist
+        
+        
     
     }
     
@@ -72,6 +74,8 @@ class TodoListViewController: UITableViewController {
 //            tableView.cellForRow(at: indexPath)?.accessoryType = .none
 //
 //        }
+        
+        saveData()
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -100,14 +104,7 @@ class TodoListViewController: UITableViewController {
             //encoder to create new own plist
             
             
-            let encoder = PropertyListEncoder()
-            do{
-                let data = try encoder.encode(self.itemArray)
-                print(data)
-                try data.write(to: self.dataFilePath!)
-            }catch{
-                print("Error encoding", error)
-            }
+                saveData()
             
             
             
@@ -120,6 +117,26 @@ class TodoListViewController: UITableViewController {
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+        
+    }
+    
+    //MARK: - Model Manipulation Methods
+    
+    func saveData(){
+        let encoder = PropertyListEncoder()
+        do{
+            let data = try encoder.encode(itemArray)
+            print(data)
+            try data.write(to: dataFilePath!)
+        }catch{
+            print("Error encoding", error)
+        }
+    }
+    
+    func loadItems(){
+        
+        
+        
         
     }
     
