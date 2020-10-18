@@ -13,34 +13,26 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let newItem1 = Item()
-        newItem1.title = "P"
-        itemArray.append(newItem1)
+//        let newItem1 = Item()
+//        newItem1.title = "P"
+//        itemArray.append(newItem1)
+//
+//        let newItem2 = Item()
+//        newItem2.title = "N"
+//        itemArray.append(newItem2)
+//
+//        let newItem3 = Item()
+//        newItem3.title = "D"
+//        itemArray.append(newItem3)
+//
 
-        let newItem2 = Item()
-        newItem2.title = "N"
-        itemArray.append(newItem2)
-
-        let newItem3 = Item()
-        newItem3.title = "D"
-        itemArray.append(newItem3)
         
-//        itemArray = [
-//
-//            Item(title: "A", done: false),
-//            Item(title: "D", done: false),
-//            Item(title: "F", done: false)
-//
-//        ]
+        if let items = defaults.array(forKey: "TodoListArray") as? [Item]{
+            itemArray = items
+        }
+
+    
     }
-        
-        
-//        if let items = defaults.array(forKey: "TodoListArray") as? [String]{
-//            itemArray = items
-//        }
-//    }
-    
-    
     
     //MARK: - TableView DataSource Methods
     
@@ -54,8 +46,9 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-//        cell.textLabel?.text = itemArray[indexPath.row]
-        cell.textLabel?.text = itemArray[indexPath.row].title
+        let item = itemArray[indexPath.row]
+        cell.textLabel?.text = item.title
+        cell.accessoryType = item.done ? .checkmark : .none
         
         return cell
     }
@@ -72,7 +65,7 @@ class TodoListViewController: UITableViewController {
 //            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
 //        }else{
 //            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-//            
+//
 //        }
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
