@@ -35,9 +35,9 @@ class TodoListViewController: UITableViewController {
 //        if let items = defaults.array(forKey: "TodoListArray") as? [Item]{
 //            itemArray = items
 //        }
-            //custom plist
+            //custom plist called 
         
-        
+        loadItems()
     
     }
     
@@ -135,7 +135,17 @@ class TodoListViewController: UITableViewController {
     
     func loadItems(){
         
-        
+        if let loadedData = try? Data(contentsOf: dataFilePath!){
+            let decoder = PropertyListDecoder()
+            do{
+                itemArray = try decoder.decode([Item].self, from: loadedData)
+
+            }catch{
+                
+                print("Error decode", error)
+            }
+            
+        }
         
         
     }
