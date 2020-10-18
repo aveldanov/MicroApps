@@ -34,8 +34,14 @@
                     <navigationItem key="navigationItem" title="Todoey" id="Vqp-ej-ifn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UfM-Bd-3yi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="tY8-p1-Fhc" id="APv-Dc-XDb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="UfM-Bd-3yi" id="yvR-OF-thh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxW-4p-VTA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
