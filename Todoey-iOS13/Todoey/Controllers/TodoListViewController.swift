@@ -151,9 +151,7 @@ class TodoListViewController: UITableViewController {
                 
                 print("Error decode", error)
             }
-            
         }
-        
     }
     
     
