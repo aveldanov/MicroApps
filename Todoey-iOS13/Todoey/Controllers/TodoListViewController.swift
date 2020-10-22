@@ -94,7 +94,9 @@ class TodoListViewController: UITableViewController {
             //            print(textFiled.text)
             
 //            self.itemArray.append(textFiled.text!)
-            let newItem = Item()
+//            let newItem = Item() // struct -> to CoreData
+            let newItem = Item(context: <#T##NSManagedObjectContext#>)
+            
             newItem.title = textFiled.text!
             itemArray.append(newItem)
             
