@@ -37,7 +37,7 @@ class TodoListViewController: UITableViewController {
 //        }
             //custom plist called 
         
-        loadItems()
+//        loadItems()
     
     }
     
@@ -141,7 +141,7 @@ class TodoListViewController: UITableViewController {
     }
     
 //    func loadItems(){
-//        
+//
 //        if let loadedData = try? Data(contentsOf: dataFilePath!){
 //            let decoder = PropertyListDecoder()
 //            do{
