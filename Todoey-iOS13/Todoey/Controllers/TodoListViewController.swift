@@ -8,7 +8,7 @@ class TodoListViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var itemArray = [Item]()
 //    var item: Item?
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 //    let defaults = UserDefaults.standard
     let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
     
