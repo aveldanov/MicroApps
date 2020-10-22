@@ -146,9 +146,7 @@ class TodoListViewController: UITableViewController {
             let decoder = PropertyListDecoder()
             do{
                 itemArray = try decoder.decode([Item].self, from: loadedData)
-
             }catch{
-                
                 print("Error decode", error)
             }
         }
