@@ -9,7 +9,7 @@ class TodoListViewController: UITableViewController {
     var item: Item?
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 //    let defaults = UserDefaults.standard
-    
+    let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +95,10 @@ class TodoListViewController: UITableViewController {
             
 //            self.itemArray.append(textFiled.text!)
 //            let newItem = Item() // struct -> to CoreData
-            let newItem = Item(context: <#T##NSManagedObjectContext#>)
+            
+
+            
+            let newItem = Item(context: context)
             
             newItem.title = textFiled.text!
             itemArray.append(newItem)
@@ -125,13 +128,15 @@ class TodoListViewController: UITableViewController {
     //MARK: - Model Manipulation Methods
     
     func saveData(){
-        let encoder = PropertyListEncoder()
+//        let encoder = PropertyListEncoder()
         do{
-            let data = try encoder.encode(itemArray)
-            print(data)
-            try data.write(to: dataFilePath!)
+//            let data = try encoder.encode(itemArray)
+//            try data.write(to: dataFilePath!)
+            
+            try context.save()
         }catch{
-            print("Error encoding", error)
+//            print("Error encoding", error)
+            print("Error saving context", error)
         }
     }
     
@@ -148,7 +153,6 @@ class TodoListViewController: UITableViewController {
             }
             
         }
-        
         
     }
     
