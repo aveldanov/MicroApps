@@ -140,17 +140,17 @@ class TodoListViewController: UITableViewController {
         }
     }
     
-    func loadItems(){
-        
-        if let loadedData = try? Data(contentsOf: dataFilePath!){
-            let decoder = PropertyListDecoder()
-            do{
-                itemArray = try decoder.decode([Item].self, from: loadedData)
-            }catch{
-                print("Error decode", error)
-            }
-        }
-    }
+//    func loadItems(){
+//        
+//        if let loadedData = try? Data(contentsOf: dataFilePath!){
+//            let decoder = PropertyListDecoder()
+//            do{
+//                itemArray = try decoder.decode([Item].self, from: loadedData)
+//            }catch{
+//                print("Error decode", error)
+//            }
+//        }
+//    }
     
     
 }
