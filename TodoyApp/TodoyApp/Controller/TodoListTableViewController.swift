@@ -15,6 +15,8 @@ class TodoListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  )
 
     }
 
@@ -61,6 +63,7 @@ class TodoListTableViewController: UITableViewController {
             let newItem = Item(context: context)
             
             newItem.title = textFiled.text!
+            newItem.done = false
             itemArray.append(newItem)
             
  
