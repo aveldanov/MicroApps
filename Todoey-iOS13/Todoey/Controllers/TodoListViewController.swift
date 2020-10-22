@@ -1,7 +1,7 @@
 
 
 import UIKit
-import CoreData
+//import CoreData
 
 class TodoListViewController: UITableViewController {
     
@@ -14,7 +14,7 @@ class TodoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print(context,"sfvsfgdfg")
  
         
 //        print(dataFilePath)
@@ -47,7 +47,7 @@ class TodoListViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemArray.count
+        return 2
     }
     
     
@@ -133,7 +133,7 @@ class TodoListViewController: UITableViewController {
         do{
 //            let data = try encoder.encode(itemArray)
 //            try data.write(to: dataFilePath!)
-            
+            print(context)
             try context.save()
         }catch{
 //            print("Error encoding", error)
