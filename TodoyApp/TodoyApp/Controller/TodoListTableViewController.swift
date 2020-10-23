@@ -12,27 +12,27 @@ class TodoListTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var itemArray = [Item]()
     let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  )
-
+        loadItems()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return itemArray.count
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
@@ -40,14 +40,17 @@ class TodoListTableViewController: UITableViewController {
         cell.textLabel?.text = item.title
         cell.accessoryType = item.done ? .checkmark : .none
         
-
+        
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+               
+//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        itemArray.remove(at: indexPath.row)
+        context.delete(itemArray[indexPath.row])
         
-        tableView.reloadData()
+        saveData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -66,10 +69,10 @@ class TodoListTableViewController: UITableViewController {
             newItem.done = false
             itemArray.append(newItem)
             
- 
+            
             
             saveData()
-
+            
             
             self.tableView.reloadData()
         }
@@ -92,7 +95,23 @@ class TodoListTableViewController: UITableViewController {
         }catch{
             print("Error saving context", error)
         }
+        tableView.reloadData()
+
     }
     
-
+    func loadItems(){
+        
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do{
+            itemArray =  try context.fetch(request)
+            
+        }catch{
+            
+            print("Error fetching context", error)
+        }
+        
+        
+    }
+    
+    
 }
