@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class TodoListTableViewController: UITableViewController {
+class TodoListTableViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var itemArray = [Item]()
     let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
@@ -47,8 +47,9 @@ class TodoListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                
 //        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
-        itemArray.remove(at: indexPath.row)
         context.delete(itemArray[indexPath.row])
+
+        itemArray.remove(at: indexPath.row)
         
         saveData()
         tableView.deselectRow(at: indexPath, animated: true)
@@ -61,19 +62,19 @@ class TodoListTableViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add New Todo Item", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Add Item", style: .default) { [self] (action) in
+        let action = UIAlertAction(title: "Add Item", style: .default) {(action) in
             
-            let newItem = Item(context: context)
-            
+            let newItem = Item(context: self.context)
+
             newItem.title = textFiled.text!
             newItem.done = false
-            itemArray.append(newItem)
-            
-            
-            
-            saveData()
-            
-            
+            self.itemArray.append(newItem)
+
+
+
+            self.saveData()
+
+
             self.tableView.reloadData()
         }
         
@@ -82,7 +83,7 @@ class TodoListTableViewController: UITableViewController {
             textFiled = alertTextField
         }
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        self.present(alert, animated: false, completion: nil)
         
     }
     
