@@ -111,6 +111,5 @@ class TodoListTableViewController: UITableViewController, UISearchBarDelegate {
             print("Error fetching context", error)
         }
         
-        
     }
 }
