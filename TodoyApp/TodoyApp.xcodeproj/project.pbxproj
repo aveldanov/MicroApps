@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2168DE15254B2EF2006EF63A /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2168DE14254B2EF2006EF63A /* CategoryTableViewController.swift */; };
 		217B9C522541564F00BEF527 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217B9C512541564F00BEF527 /* AppDelegate.swift */; };
 		217B9C542541564F00BEF527 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217B9C532541564F00BEF527 /* SceneDelegate.swift */; };
 		217B9C592541564F00BEF527 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217B9C572541564F00BEF527 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2168DE14254B2EF2006EF63A /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		217B9C4E2541564F00BEF527 /* TodoyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217B9C512541564F00BEF527 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		217B9C532541564F00BEF527 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		217B9C6D2541583200BEF527 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2168DE14254B2EF2006EF63A /* CategoryTableViewController.swift */,
 				217B9C6A254156D300BEF527 /* TodoListTableViewController.swift */,
 			);
 			path = Controller;
@@ -172,6 +175,7 @@
 				217B9C522541564F00BEF527 /* AppDelegate.swift in Sources */,
 				217B9C542541564F00BEF527 /* SceneDelegate.swift in Sources */,
 				217B9C6B254156D300BEF527 /* TodoListTableViewController.swift in Sources */,
+				2168DE15254B2EF2006EF63A /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
