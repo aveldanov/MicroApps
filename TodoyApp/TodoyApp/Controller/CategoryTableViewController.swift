@@ -18,7 +18,8 @@ class CategoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(categoryArr)
+        loadCategories()
     }
 
     // MARK: - Table view data source
@@ -42,6 +43,12 @@ class CategoryTableViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+    }
+    
+    
     
     //MARK: - Data Manipulation Methods
     func loadCategories(with request: NSFetchRequest<CategoryItem> = CategoryItem.fetchRequest()){
@@ -55,6 +62,16 @@ class CategoryTableViewController: UITableViewController {
     }
     
     
+    func saveCategories(){
+        do{
+            try context.save()
+        }catch{
+            print("Error saving context", error)
+        }
+        tableView.reloadData()
+
+    }
+    
     //MARK: - Add New Categories
     
     
@@ -67,6 +84,7 @@ class CategoryTableViewController: UITableViewController {
             let newCategory = CategoryItem(context: self.context)
             newCategory.name = textField.text!
             self.categoryArr.append(newCategory)
+            self.saveCategories()
             
         }
         
