@@ -18,6 +18,8 @@ class TodoListTableViewController: UITableViewController {
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  )
         loadItems()
+        
+        
     }
     
     // MARK: - Table view data source
@@ -105,9 +107,9 @@ class TodoListTableViewController: UITableViewController {
 
     }
     
-    func loadItems(){
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
         
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+
         do{
             itemArray =  try context.fetch(request)
             
@@ -115,7 +117,8 @@ class TodoListTableViewController: UITableViewController {
             
             print("Error fetching context", error)
         }
-        
+        tableView.reloadData()
+
     }
 }
 
@@ -129,21 +132,10 @@ extension TodoListTableViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
       // [cd] -> remove case sesitivity for predicate
-        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text as! CVarArg)
-
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text as! CVarArg)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
-        
-        do{
-            itemArray =  try context.fetch(request)
-            
-        }catch{
-            
-            print("Error fetching context", error)
-        }
-        
-        tableView.reloadData()
+        loadItems(with: request)
         
     }
     
