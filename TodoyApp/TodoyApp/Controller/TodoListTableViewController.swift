@@ -128,8 +128,22 @@ extension TodoListTableViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-      
+      // [cd] -> remove case sesitivity for predicate
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text as! CVarArg)
+
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
         
+        
+        do{
+            itemArray =  try context.fetch(request)
+            
+        }catch{
+            
+            print("Error fetching context", error)
+        }
+        
+        tableView.reloadData()
         
     }
     
