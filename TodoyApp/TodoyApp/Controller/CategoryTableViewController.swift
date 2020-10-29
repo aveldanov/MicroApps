@@ -20,10 +20,11 @@ class CategoryTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    //MARK: - Data Manipulation Methods
 
-    //MARK: - Table View Delegate Methods
     
     
+    //MARK: - Add New Categories
     
     
     
@@ -31,3 +32,4 @@ class CategoryTableViewController: UITableViewController {
     }
     
 }
+//MARK: - Table View Delegate Methods
