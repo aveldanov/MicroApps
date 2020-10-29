@@ -11,7 +11,7 @@ import CoreData
 class CategoryTableViewController: UITableViewController {
 
     
-    var categoryArr = [Category]()
+    var categoryArr = [CategoryItem]()
     let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
     
     
@@ -32,8 +32,27 @@ class CategoryTableViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        
+        cell.textLabel = categoryArr[indexPath.row].name
+        
+        
+        return cell
+    }
+    
+    
+    
     //MARK: - Data Manipulation Methods
+    func loadCategories(with request: NSFetchRequest<CategoryItem> = CategoryItem.fetchRequest()){
+        do{
+            categoryArr = try context.fetch(request)
+        }catch{
+            print("Error fetching context", error)
+        }
+        tableView.reloadData()
 
+    }
     
     
     //MARK: - Add New Categories
@@ -41,6 +60,23 @@ class CategoryTableViewController: UITableViewController {
     
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add Category" , message: "Please add new category", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+           
+            let newCategory = CategoryItem(context: self.context)
+            newCategory.name = textField.text!
+            self.categoryArr.append(newCategory)
+            
+        }
+        
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Type something ... "
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        self.present(alert, animated: false, completion: nil)
     }
     
 }

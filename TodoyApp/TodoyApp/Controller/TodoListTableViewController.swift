@@ -18,7 +18,7 @@ class TodoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  )
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  )
         loadItems()
         
         
@@ -62,7 +62,7 @@ class TodoListTableViewController: UITableViewController {
     
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        var textFiled = UITextField()
+        var textFieled = UITextField()
         
         let alert = UIAlertController(title: "Add New Todo Item", message: "", preferredStyle: .alert)
         
@@ -70,7 +70,7 @@ class TodoListTableViewController: UITableViewController {
             
             let newItem = Item(context: self.context)
 
-            newItem.title = textFiled.text!
+            newItem.title = textFieled.text!
             newItem.done = false
             self.itemArray.append(newItem)
 
@@ -84,7 +84,7 @@ class TodoListTableViewController: UITableViewController {
         
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Type something ... "
-            textFiled = alertTextField
+            textFieled = alertTextField
         }
         alert.addAction(action)
         self.present(alert, animated: false, completion: nil)
