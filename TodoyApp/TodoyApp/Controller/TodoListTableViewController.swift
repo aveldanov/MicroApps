@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class TodoListTableViewController: UITableViewController, UISearchBarDelegate {
+class TodoListTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var itemArray = [Item]()
     let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
@@ -87,6 +87,11 @@ class TodoListTableViewController: UITableViewController, UISearchBarDelegate {
         
     }
     
+
+    
+    
+    
+    
     //MARK: - Model Manipulation Methods
     
     func saveData(){
@@ -112,4 +117,21 @@ class TodoListTableViewController: UITableViewController, UISearchBarDelegate {
         }
         
     }
+}
+
+
+
+//MARK: - Search Bar Methods
+
+extension TodoListTableViewController: UISearchBarDelegate{
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+      
+        
+        
+    }
+    
+    
 }
