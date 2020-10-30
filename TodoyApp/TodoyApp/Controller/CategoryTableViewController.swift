@@ -29,7 +29,7 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categoryArr.count
+        return categoryArr.count
     }
     
     
