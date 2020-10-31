@@ -49,6 +49,12 @@ class CategoryTableViewController: UITableViewController {
     }
     
     
+    //MARK: - Table View Delegate Methods
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
     
     //MARK: - Data Manipulation Methods
     func loadCategories(with request: NSFetchRequest<CategoryItem> = CategoryItem.fetchRequest()){
@@ -98,4 +104,3 @@ class CategoryTableViewController: UITableViewController {
     }
     
 }
-//MARK: - Table View Delegate Methods
