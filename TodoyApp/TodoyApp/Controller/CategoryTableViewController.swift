@@ -13,7 +13,7 @@ class CategoryTableViewController: UITableViewController {
     
     var categoryArr = [CategoryItem]()
     let context =  ((UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
-    
+
     
     
     override func viewDidLoad() {
@@ -42,20 +42,26 @@ class CategoryTableViewController: UITableViewController {
         return cell
     }
     
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-    }
-    
-    
     //MARK: - Table View Delegate Methods
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // segue
         performSegue(withIdentifier: "goToItems", sender: self)
-        
     }
+    
+    
+
+
+    
+    // prepare for segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC  = segue.destination as! TodoListTableViewController
+        if let indexPath = tableView.indexPathForSelectedRow{
+            print("BOOM",indexPath)
+            destinationVC.selectedCategory = categoryArr[indexPath.row]
+        }
+    }
+    
     
     
     //MARK: - Data Manipulation Methods
