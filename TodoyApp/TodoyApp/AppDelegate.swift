@@ -19,15 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(Realm.Configuration.defaultConfiguration.fileURL)
         let data = Data()
         data.name = "Anton"
-        data.age = 13
-        do{
-            let realm = try Realm()
-            try realm.write{
+//        data.age = 13
+            let realm = try! Realm()
+            try! realm.write{
                 realm.add(data)
             }
-        }catch{
-            print("Error to init Realm")
-        }
+        
         
         
         return true
